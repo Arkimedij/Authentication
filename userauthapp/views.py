@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 
@@ -8,7 +8,7 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("User registration successful")         
+            return redirect('login')
     else:
         form = UserCreationForm()
         
@@ -21,3 +21,7 @@ def login(request):
 
 def home(request):
     return render(request,'home.html')
+    """
+    nepal
+    hello0099
+    """

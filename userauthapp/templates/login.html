@@ -14,12 +14,12 @@
 
 				<h1 id="title">Login</h1>
 
-				<form name="myform" onsubmit="validateform()">
-
+				<form method = "post" name="myform" onsubmit="validateform()" action = "{% url 'login'%}">
+					{% csrf_token %}
 					<div class="input-group">
 
 						<div class="input-field">
-							<input type="emial" placeholder="Email" name="email">	
+							<input type="emial" placeholder="Username/Email" name="email">	
 						</div>
 
 						<div class="input-field">
@@ -35,7 +35,7 @@
 					</div>
 					<br>
 					<div class="low">
-					<p>Don't You Have Account?<a href="SignUp.html">SignUp</a></p>
+					<p>Don't You Have Account?<a href="{% url 'register'%}">Register</a></p>
 					</div>
 				</form>
 				
