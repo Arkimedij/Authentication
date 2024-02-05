@@ -14,7 +14,7 @@
 
 				<h1 id="title">Login</h1>
 
-				<form method = "post" name="myform" onsubmit="validateform()" action = "{% url 'login'%}">
+				<form method = "post" name="myform" onsubmit="validateform()" action = "{% url 'cust_login'%}">
 					{% csrf_token %}
 					<div class="input-group">
 

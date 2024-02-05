@@ -14,7 +14,9 @@ def register(request):
         form = UserCreationForm()
         
     return render(request,'register.html',{'form':form})
-def login(request):
+
+
+def cust_login(request):
     if request.method == 'POST':
         
         username = request.POST['username']
@@ -23,11 +25,15 @@ def login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')  # Replace 'home' with the actual name of your home view
+            return redirect('dashboard')  # Replace 'home' with the actual name of your home view
         else:
             # Handle invalid login credentials
             return render(request, 'login.html', {'error': 'Invalid username or password'})
     return render(request, 'login.html')
+
+def cust_logout(request):
+    logout(request)
+    return redirect('cust_login')
 
 def home(request):
     return render(request,'home.html')
